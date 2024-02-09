@@ -5,10 +5,9 @@ import {
     Button,
     Caption1,
     Divider,
-    Link,
-    MessageBar,
-    MessageBarBody,
+    Link
 } from "@fluentui/react-components"
+import { MessageBar } from "@fluentui/react"
 import {ArrowDownloadRegular, CopyRegular, Document20Regular, Link20Regular, OpenRegular} from "@fluentui/react-icons"
 import {LocalStorageKey, useLocalStorage} from "../../../components/useLocalStorage"
 import VsCodeLogo from "../../../components/logos/VsCodeLogo"
@@ -55,7 +54,7 @@ const Options: FC<{api: TApi; version?: string; definition?: string}> = ({api, v
         <div className={c.options}>
             {!version || !definition ? (
                 <MessageBar>
-                    <MessageBarBody>There are no available options for this API.</MessageBarBody>
+                   There are no available options for this API.
                 </MessageBar>
             ) : (
                 <div className={c.option}>

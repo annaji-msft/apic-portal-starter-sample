@@ -15,11 +15,19 @@ const Header = () => {
     const [config, setConfig] = useState<TConfig>()
 
     const fetchConfig = async () => {
-        const response = await fetch(window.location.href + "config")
-
-        const dataJson = await response.json()
-        setConfig(dataJson)
-        dataApiEndpoint.set(dataJson.dataApiHostName)
+        const dataJson = {
+            "dataApiHostName": "happydev.data.eastus.azure-apicenter.ms",
+            "title": "happydev",
+            "authentication": {
+                "clientId": "5bebdc5c-01ef-4a8c-ba07-e0623b9d110b",
+                "tenantId": "888d76fa-54b2-4ced-8ee5-aac1585adee7",
+                "scopes": "https://azure-apicenter.net/user_impersonation",
+                "azureAdInstance": "https://login.microsoftonline.com/"
+            },
+            "enabled": true
+        };
+        setConfig(dataJson);
+        dataApiEndpoint.set(dataJson.dataApiHostName);
     }
 
     useEffect(() => {
