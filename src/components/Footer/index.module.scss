@@ -1,0 +1,51 @@
+@import "/src/index";
+
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #E6E6E6;
+    
+    .footerTop ,
+    .footerBottom {
+        max-width: 100rem;
+        width: calc(100% - 4rem);
+        margin: 0 auto;
+        padding: 0 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .footerTop {
+        height: 4.75rem;
+    }
+
+    .footerBottom {
+        height: 3.5rem;
+        display: flex;
+        justify-content: center;
+
+        .link {
+            color: #707070;
+            padding-left: 2.75rem;
+        }
+    }
+
+    .footerDivider {
+        width: 100%;
+        border-top: 2px solid white;
+    }
+
+    .footerLinks {
+        .link {
+            padding-left: 2.5rem;
+        }
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+    }
+}
