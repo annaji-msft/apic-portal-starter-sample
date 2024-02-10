@@ -7,15 +7,18 @@ import {
     Divider,
     Link
 } from "@fluentui/react-components"
+import {useNavigate} from "react-router-dom"
 import { MessageBar } from "@fluentui/react"
 import {ArrowDownloadRegular, CopyRegular, Document20Regular, Link20Regular, OpenRegular} from "@fluentui/react-icons"
 import {LocalStorageKey, useLocalStorage} from "../../../components/useLocalStorage"
 import VsCodeLogo from "../../../components/logos/VsCodeLogo"
+import StoplightLogo from "../../../components/logos/StoplightLogo"
 import {TApi} from "../../../types"
 
 import c from "./index.module.scss"
 
 const Options: FC<{api: TApi; version?: string; definition?: string}> = ({api, version, definition}) => {
+    const navigate = useNavigate()
     const bearer = useLocalStorage(LocalStorageKey.accessToken).get()
     const dataApiEndpoint = useLocalStorage(LocalStorageKey.dataApiEndpoint).get()
 
@@ -74,7 +77,11 @@ const Options: FC<{api: TApi; version?: string; definition?: string}> = ({api, v
                         </Body1>
                         {/* <Button icon={<VsCodeLogo />} className={c.button}>
                             Open in Visual Studio Code
-                        </Button> */}
+                        </Button> */
+                        <Button icon={<StoplightLogo />} className={c.button} onClick={() => navigate("/desc/" + api.name + window.location.search)}>
+                            API Description
+                        </Button>
+                        }
                     </div>
                 </div>
             )}
