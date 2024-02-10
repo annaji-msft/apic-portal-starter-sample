@@ -4,11 +4,12 @@ import {Button, Link, Text} from "@fluentui/react-components"
 import CloverLogo from "../logos/CloverLogo"
 import {LocalStorageKey, useLocalStorage} from "../useLocalStorage"
 import {TConfig} from "../../types"
-
+import {useNavigate} from "react-router-dom"
 import c from "./index.module.scss"
 import colors from "../../colors.module.scss"
 
 const Header = () => {
+    const navigate = useNavigate()
     const accessToken = useLocalStorage(LocalStorageKey.accessToken)
     const dataApiEndpoint = useLocalStorage(LocalStorageKey.dataApiEndpoint)
 
@@ -73,7 +74,7 @@ const Header = () => {
             </div>
             <div className={c.headerRight}>
                 <div className={c.headerLinks}>
-                    <Link appearance="subtle" href="#">
+                    <Link appearance="subtle" href="#" onClick={() => navigate("/")}>
                         Home
                     </Link>
                     <Link appearance="subtle" href="https://learn.microsoft.com/en-us/azure/api-center/overview" target="_blank" rel="noopener noreferrer">
