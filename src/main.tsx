@@ -1,7 +1,6 @@
 import React from "react"
 import ReactDOM from "react-dom/client"
 import {FluentProvider, webLightTheme} from "@fluentui/react-components"
-
 import {LocalStorageProvider} from "./components/useLocalStorage.tsx"
 import Router from "./Router.tsx"
 

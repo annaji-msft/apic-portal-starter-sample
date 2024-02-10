@@ -15,9 +15,10 @@ import {TApi} from "../../../types.ts"
 import colors from "../../../colors.module.scss"
 import c from "./index.module.scss"
 
-let timeoutId: number | undefined
 
 export type TSearchRecent = {type: "api" | "string"; key: string; value: string; api?: TApi}
+
+let timeoutId: any;
 
 const Search = () => {
     const localStorage = useLocalStorage(LocalStorageKey.searchRecents)
