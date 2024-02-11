@@ -7,6 +7,7 @@ import {TConfig} from "../../types"
 import {useNavigate} from "react-router-dom"
 import c from "./index.module.scss"
 import colors from "../../colors.module.scss"
+import { FaGithub } from 'react-icons/fa'; 
 
 const Header = () => {
     const navigate = useNavigate()
@@ -17,15 +18,15 @@ const Header = () => {
 
     const fetchConfig = async () => {
         const dataJson = {
-            "dataApiHostName": "happydev.data.eastus.azure-apicenter.ms",
-            "title": "happydev",
+            "dataApiHostName": import.meta.env.VITE_DATA_API_HOST_NAME,
+            "title": import.meta.env.VITE_TITLE,
             "authentication": {
-                "clientId": "5bebdc5c-01ef-4a8c-ba07-e0623b9d110b",
-                "tenantId": "888d76fa-54b2-4ced-8ee5-aac1585adee7",
-                "scopes": "https://azure-apicenter.net/user_impersonation",
-                "azureAdInstance": "https://login.microsoftonline.com/"
+                "clientId": import.meta.env.VITE_CLIENT_ID,
+                "tenantId": import.meta.env.VITE_TENANT_ID,
+                "scopes": import.meta.env.VITE_SCOPES,
+                "azureAdInstance": import.meta.env.VITE_AZURE_AD_INSTANCE
             },
-            "enabled": true
+            "enabled": import.meta.env.VITE_ENABLED
         };
         setConfig(dataJson);
         dataApiEndpoint.set(dataJson.dataApiHostName);
@@ -78,7 +79,10 @@ const Header = () => {
                         Home
                     </Link>
                     <Link appearance="subtle" href="https://learn.microsoft.com/en-us/azure/api-center/overview" target="_blank" rel="noopener noreferrer">
-                        Help
+                        Help 
+                    </Link>
+                    <Link appearance="subtle" href="https://github.com/annaji-msft/apic-portal-starter" target="_blank" rel="noopener noreferrer">
+                        View on GitHub <FaGithub />
                     </Link>
                 </div>
                 {!accessToken.get() && !!config && (

@@ -24,9 +24,11 @@
         "@vitejs/plugin-basic-ssl": "^1.0.1",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
+        "react-icons": "^5.0.1",
         "react-router-dom": "^6.16.0"
     },
     "devDependencies": {
+        "@types/node": "^20.11.17",
         "@types/react": "^18.2.15",
         "@types/react-dom": "^18.2.7",
         "@typescript-eslint/eslint-plugin": "^6.0.0",

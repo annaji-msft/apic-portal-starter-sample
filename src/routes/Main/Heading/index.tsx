@@ -21,7 +21,7 @@ const Heading = () => {
 
     return (
         <section className={c.heading}>
-            <h1>API Center portal</h1>
+            <h1>APIs for HappyDevs</h1>
             <Search />
         </section>
     )

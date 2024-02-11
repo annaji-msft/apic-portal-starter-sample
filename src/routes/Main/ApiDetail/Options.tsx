@@ -12,7 +12,7 @@ import { MessageBar } from "@fluentui/react"
 import {ArrowDownloadRegular, CopyRegular, Document20Regular, Link20Regular, OpenRegular} from "@fluentui/react-icons"
 import {LocalStorageKey, useLocalStorage} from "../../../components/useLocalStorage"
 import VsCodeLogo from "../../../components/logos/VsCodeLogo"
-import StoplightLogo from "../../../components/logos/StoplightLogo"
+import { VscListTree } from "react-icons/vsc";
 import {TApi} from "../../../types"
 
 import c from "./index.module.scss"
@@ -78,7 +78,7 @@ const Options: FC<{api: TApi; version?: string; definition?: string}> = ({api, v
                         {/* <Button icon={<VsCodeLogo />} className={c.button}>
                             Open in Visual Studio Code
                         </Button> */
-                        <Button icon={<StoplightLogo />} className={c.button} onClick={() => navigate("/desc/" + api.name + window.location.search)}>
+                        <Button icon={<VscListTree />} className={c.button} onClick={() => navigate("/desc/" + api.name + window.location.search)}>
                             API Description
                         </Button>
                         }
