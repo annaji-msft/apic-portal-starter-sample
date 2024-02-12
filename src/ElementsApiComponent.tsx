@@ -1,33 +1,38 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
-const ElementsApiComponent = ({ apiDescriptionUrl }) => {
-  useEffect(() => {
+class ElementsApiComponent extends React.Component {
+  script = null;
+  link = null;
+
+  componentDidMount() {
     // Load the script that defines the `elements-api` custom element
-    const script = document.createElement('script');
-    script.src = 'https://unpkg.com/@stoplight/elements/web-components.min.js';
-    script.async = true;
-    document.body.appendChild(script);
+    this.script = document.createElement('script');
+    this.script.src = 'https://unpkg.com/@stoplight/elements/web-components.min.js';
+    this.script.async = true;
+    document.body.appendChild(this.script);
 
     // Load the stylesheet for the `elements-api` custom element
-    const link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = 'https://unpkg.com/@stoplight/elements/styles.min.css';
-    document.head.appendChild(link);
+    this.link = document.createElement('link');
+    this.link.rel = 'stylesheet';
+    this.link.href = 'https://unpkg.com/@stoplight/elements/styles.min.css';
+    document.head.appendChild(this.link);
+  }
 
+  componentWillUnmount() {
     // Clean up on component unmount
-    return () => {
-      document.body.removeChild(script);
-      document.head.removeChild(link);
-    };
-  }, []);
+    document.body.removeChild(this.script);
+    document.head.removeChild(this.link);
+  }
 
-  return (
-    <elements-api
-      apiDescriptionUrl={apiDescriptionUrl}
-      router="hash"
-      layout="sidebar"
-    />
-  );
-};
+  render() {
+    return (
+      <elements-api
+        apiDescriptionDocument={window.apiDescriptionDocument}
+        router="hash"
+        layout="sidebar"
+      />
+    );
+  }
+}
 
 export default ElementsApiComponent;

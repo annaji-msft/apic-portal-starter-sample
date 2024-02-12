@@ -53,6 +53,27 @@ const Options: FC<{api: TApi; version?: string; definition?: string}> = ({api, v
         }
     }
 
+    const navigateToApiDescription = async () => {
+        const response = await fetch(
+            `https://${dataApiEndpoint}/apis/${api.name}/versions/${version}/definitions/${definition}:exportSpecification`,
+            {
+                method: "POST",
+                headers: {
+                    Authorization: "Bearer " + bearer,
+                },
+            }
+        )
+
+        if (response.status === 200) {
+            const responseJson = await response.json()
+            window.apiDescriptionDocument = responseJson.value;
+        } else {
+            alert("Something went wrong, please reload the page")
+        }
+
+        navigate("/desc/" + api.name + window.location.search);
+    }
+
     return (
         <div className={c.options}>
             {!version || !definition ? (
@@ -78,7 +99,7 @@ const Options: FC<{api: TApi; version?: string; definition?: string}> = ({api, v
                         {/* <Button icon={<VsCodeLogo />} className={c.button}>
                             Open in Visual Studio Code
                         </Button> */
-                        <Button icon={<VscListTree />} className={c.button} onClick={() => navigate("/desc/" + api.name + window.location.search)}>
+                        <Button icon={<VscListTree />} className={c.button} onClick={() => navigateToApiDescription()}>
                             API Description
                         </Button>
                         }

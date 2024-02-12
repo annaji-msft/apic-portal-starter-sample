@@ -21,7 +21,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "desc/:id",
-                element: <ElementsApiComponent apiDescriptionUrl="https://petstore3.swagger.io/api/v3/openapi.json" />,
+                element: <ElementsApiComponent />,
             },
         ],
     },
