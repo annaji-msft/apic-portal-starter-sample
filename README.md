@@ -35,6 +35,6 @@ Create a static web app and configure with your copied repo. During create provi
 After the creation of static web app. Make sure the app is deployed and hosted on SWA. 
 
 ## Local development
-npm install 
-npm run build
+npm install \
+npm run build \
 npm run dev
