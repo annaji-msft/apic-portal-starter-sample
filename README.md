@@ -10,7 +10,7 @@ The data plane apis enable building custom developer experiences for consumption
 Example, this sample uses different styling, custom domains powered by SWA and [stoplight elements](https://github.com/stoplightio/elements) for API refernece.\
 The sample is built using standard react components and hosted on [Static Web Apps](https://learn.microsoft.com/en-us/azure/static-web-apps/overview)
 
-## Setup
+## Set-up
 
 [Register a Entra ID app](https://learn.microsoft.com/en-us/azure/api-center/enable-api-center-portal#create-microsoft-entra-app-registration) Note - Skip the portal configuration steps.
 
